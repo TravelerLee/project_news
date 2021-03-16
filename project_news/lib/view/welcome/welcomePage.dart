@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_news/common/utils/screen.dart';
 import 'package:project_news/common/values/colors.dart';
+import 'package:project_news/common/values/radii.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key key}) : super(key: key);
@@ -78,27 +79,32 @@ class WelcomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildStartButton() {
+  Widget _buildStartButton(BuildContext context) {
     return Container(
-      height: duSetHeight(44),
       width: duSetWidth(295),
+      height: duSetHeight(44),
       margin: EdgeInsets.only(bottom: duSetHeight(20)),
       child: TextButton(
-        onPressed: () {},
         child: Text(
-          'Get started',
+          "Get started",
           style: TextStyle(
             color: AppColors.primaryElementText,
             fontFamily: 'Montserrat',
-            fontWeight: FontWeight.normal,
-            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            fontSize: duSetFontSize(16),
           ),
         ),
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(AppColors.primaryElement),
-          shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
-        ),
+            backgroundColor:
+                MaterialStateProperty.all(AppColors.primaryElement),
+            shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(borderRadius: Radii.k6pxRadius))),
+        onPressed: () {
+          Navigator.pushNamed(
+            context,
+            "/sign-in",
+          );
+        },
       ),
     );
   }
@@ -129,7 +135,7 @@ class WelcomePage extends StatelessWidget {
               40,
             ),
             Spacer(),
-            _buildStartButton(),
+            _buildStartButton(context),
           ],
         ),
       ),
