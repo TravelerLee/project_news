@@ -2,10 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:project_news/common/utils/screen.dart';
+import 'package:project_news/common/utils/validator.dart';
 import 'package:project_news/common/values/colors.dart';
 import 'package:project_news/common/values/shadows.dart';
 import 'package:project_news/common/widgets/button.dart';
 import 'package:project_news/common/widgets/input.dart';
+import 'package:project_news/common/widgets/toast.dart';
 
 class SignInPage extends StatefulWidget {
   SignInPage({Key key}) : super(key: key);
@@ -114,6 +116,7 @@ class _SignInPageState extends State<SignInPage> {
             margin: EdgeInsets.only(top: duSetHeight(15)),
             child: Row(
               children: [
+                ///注册
                 btnFlatButtonWidget(
                   onPressed: () {
                     Navigator.pushNamed(context, '/sign-up');
@@ -122,9 +125,19 @@ class _SignInPageState extends State<SignInPage> {
                   title: 'Sign up',
                 ),
                 Spacer(),
+
+                ///登录
                 btnFlatButtonWidget(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/sign-in');
+                    if (!duIsEmail(_emailController.value.text)) {
+                      toastInfo(msg: '请输入正确邮件');
+                      return;
+                    }
+                    if (!duCheckStringLength(
+                        _passwordController.value.text, 6)) {
+                      toastInfo(msg: '密码不能小于6位');
+                      return;
+                    }
                   },
                   gbColor: AppColors.primaryElement,
                   title: 'Sign in',

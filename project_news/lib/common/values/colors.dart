@@ -16,6 +16,9 @@ class AppColors {
   /// 第二种控件-背景色 淡灰色
   static const Color secondaryElement = Color.fromARGB(255, 246, 246, 246);
 
+  /// 第二种控件-文本 浅蓝色
+  static const Color secondaryElementText = Color.fromARGB(255, 41, 103, 255);
+
   /// 第三种控件-背景色 石墨色
   static const Color thirdElement = Color.fromARGB(255, 45, 45, 47);
 }

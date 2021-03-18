@@ -4,6 +4,7 @@ import 'package:project_news/common/values/borders.dart';
 import 'package:project_news/common/values/colors.dart';
 import 'package:project_news/common/values/radii.dart';
 
+///扁平圆角按钮
 Widget btnFlatButtonWidget({
   @required VoidCallback onPressed,
   double width = 140,

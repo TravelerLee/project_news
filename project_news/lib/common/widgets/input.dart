@@ -20,7 +20,7 @@ Widget inputTextEdit(
       controller: controller,
       keyboardType: keyboardType,
       decoration: InputDecoration(
-        hintText: 'Email',
+        hintText: hintText,
         contentPadding: EdgeInsets.fromLTRB(20, 10, 0, 9),
         border: InputBorder.none,
       ),
